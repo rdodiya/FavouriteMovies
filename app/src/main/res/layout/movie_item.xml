@@ -16,6 +16,6 @@
         android:textColor="@color/black"
         android:padding="5dp"
         android:text="movie"
-        android:background="#7FD3FA"/>
+        android:background="#7FD3FA" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -7,8 +7,11 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.content.Intent;
 import android.database.Cursor;
 import android.os.Bundle;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.util.Log;
 import android.view.View;
+import android.widget.EditText;
 import android.widget.Toast;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
@@ -26,6 +29,7 @@ public class MainActivity extends AppCompatActivity {
     RecyclerView recyclerView;
     DatabaseHelper dbhelper;
     FloatingActionButton add;
+    EditText searchEdtx;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,7 +40,46 @@ public class MainActivity extends AppCompatActivity {
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         dbhelper=new DatabaseHelper(getApplicationContext());
         add=(FloatingActionButton)findViewById(R.id.addMovie);
+        searchEdtx=(EditText)findViewById(R.id.searchEdtx);
 
+        adapter=new MyAdapter(movieList,getApplicationContext());
+        recyclerView.setAdapter(adapter);
+
+        getData();
+
+        add.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent=new Intent(getApplicationContext(),AddMovie.class);
+                startActivity(intent);
+            }
+        });
+
+
+        searchEdtx.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+                searchFilter(s.toString());
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+                if(!s.toString().isEmpty()){
+                    searchFilter(s.toString());
+                }else {
+                    movieList.clear();
+                    getData();
+                }
+            }
+        });
+    }
+
+    private void getData(){
         dbhelper.getData();
         Cursor cursor=dbhelper.getData();
 
@@ -60,18 +103,23 @@ public class MainActivity extends AppCompatActivity {
             }
             Log.i("cursor",movieList.toString());
         }
-
-
-        adapter=new MyAdapter(movieList,getApplicationContext());
-        recyclerView.setAdapter(adapter);
-
-        add.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent=new Intent(getApplicationContext(),AddMovie.class);
-                startActivity(intent);
-            }
-        });
     }
+    private void searchFilter(String text){
+        String searchTxt=text.trim();
+        ArrayList<Movie> FilterdList = new ArrayList<>();
 
+        //looping through existing elements
+        for (Movie s : movieList) {
+            //if the existing elements contains the search input
+            if (s.getName().toLowerCase().contains(searchTxt.toLowerCase()) || s.getActor().toLowerCase().contains(searchTxt.toLowerCase())
+                    || s.getActress().toLowerCase().contains(searchTxt.toLowerCase()) ||  s.getDirector().toLowerCase().contains(searchTxt.toLowerCase())
+                    || s.getReleaseDate().toLowerCase().contains(searchTxt.toLowerCase()) || s.getCountry().toLowerCase().contains(searchTxt.toLowerCase())
+                    || s.getLanguage().toLowerCase().contains(searchTxt.toLowerCase()) ) {
+                //adding the element to filtered list
+                FilterdList.add(s);
+            }
+        }
+        adapter.setFilter(FilterdList);
+
+    }
 }

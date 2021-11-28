@@ -47,6 +47,11 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder>{
         });
 
     }
+    public void setFilter(ArrayList<Movie> newsArrayList) {
+        list.clear();
+        list.addAll(newsArrayList);
+        notifyDataSetChanged();
+    }
 
     @Override
     public int getItemCount() {
