@@ -1,0 +1,222 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".AddMovie">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:gravity="center">
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Add Movie"
+            android:textSize="30sp"
+            android:textAllCaps="true"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="10dp"
+            android:textStyle="bold"
+            android:fontFamily="sans-serif-black"/>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="40dp"
+            android:layout_margin="10dp">
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="3"
+                android:text="Movie Name "
+                android:layout_gravity="center"
+                android:textSize="18sp"
+                android:layout_margin="10dp"
+                />
+            <EditText
+                android:id="@+id/add_name"
+                android:layout_width="0dp"
+                android:layout_weight="8"
+                android:layout_height="wrap_content"
+                android:inputType="text"
+                android:hint="Enter movie name"
+                android:layout_margin="10dp"
+                android:textSize="18sp" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="40dp"
+            android:layout_margin="10dp">
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="3"
+                android:text="Actor "
+                android:textSize="18sp"
+                android:layout_margin="10dp"
+                />
+            <EditText
+                android:id="@+id/add_actor"
+                android:layout_width="0dp"
+                android:layout_weight="8"
+                android:layout_height="wrap_content"
+                android:inputType="textPersonName"
+                android:hint="Enter actor name"
+                android:layout_margin="10dp"
+                android:textSize="18sp"/>
+
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="40dp"
+            android:layout_margin="10dp">
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="3"
+                android:text="Actress"
+                android:textSize="18sp"
+                android:layout_margin="10dp"
+                />
+            <EditText
+                android:id="@+id/add_actress"
+                android:layout_width="0dp"
+                android:layout_weight="8"
+                android:layout_height="wrap_content"
+                android:inputType="textPersonName"
+                android:hint="Enter actress name"
+                android:layout_margin="10dp"
+                android:textSize="18sp"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="40dp"
+            android:layout_margin="10dp">
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="3"
+                android:text="Director"
+                android:textSize="18sp"
+                android:layout_margin="10dp"
+                />
+            <EditText
+                android:id="@+id/add_director"
+                android:layout_width="0dp"
+                android:layout_weight="8"
+                android:layout_height="wrap_content"
+                android:hint="Enter director name"
+                android:inputType="text"
+                android:layout_margin="10dp"
+                android:textSize="18sp" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="40dp"
+            android:layout_margin="10dp">
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="3"
+                android:text="Release Date"
+                android:textSize="18sp"
+                android:layout_margin="10dp"
+                android:layout_gravity="center"
+                />
+            <EditText
+                android:id="@+id/add_releaseDate"
+                android:layout_width="0dp"
+                android:layout_weight="8"
+                android:layout_height="wrap_content"
+                android:inputType="date"
+                android:hint="Enter release date"
+                android:layout_margin="10dp"
+                android:textSize="18sp"/>
+
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="40dp"
+            android:layout_margin="10dp">
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="3"
+                android:text="Language"
+                android:textSize="18sp"
+                android:layout_margin="10dp"
+                android:layout_gravity="center"
+                />
+            <EditText
+                android:id="@+id/add_language"
+                android:layout_width="0dp"
+                android:layout_weight="8"
+                android:layout_height="wrap_content"
+                android:inputType="text"
+                android:hint="Enter language"
+                android:layout_margin="10dp"
+                android:textSize="18sp"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="40dp"
+            android:layout_margin="10dp">
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="3"
+                android:text="Country"
+                android:textSize="18sp"
+                android:layout_margin="10dp"
+                android:layout_gravity="center"
+                />
+            <EditText
+                android:id="@+id/add_country"
+                android:layout_width="0dp"
+                android:layout_weight="8"
+                android:layout_height="wrap_content"
+                android:inputType="text"
+                android:hint="Enter country name"
+                android:layout_margin="10dp"
+                android:textSize="18sp"/>
+
+        </LinearLayout>
+        <Button
+            android:id="@+id/add_Btn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Add Movie"
+            android:textSize="18sp"
+            android:layout_margin="10dp"
+            />
+
+
+    </LinearLayout>
+
+</ScrollView>
